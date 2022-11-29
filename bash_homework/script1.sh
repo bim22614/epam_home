@@ -6,7 +6,7 @@ function all(){
 	read interface
 	echo 'IP in current subnet'		
 	net=`nmcli dev show $interface | awk 'NR==9' | cut -d: -f2 | sed 's/ //g'`
-	nmap -sn $net | grep 'Nmap' | cut -d' ' -f5 | grep -v 'http'
+	nmap -sn $net | grep 'Nmap' | cut -d' ' -f5 | grep -v 'http' | head -n -1
 }
 
 
